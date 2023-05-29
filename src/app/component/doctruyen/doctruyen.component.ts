@@ -17,13 +17,12 @@ export class DoctruyenComponent implements OnInit {
   currentIndex = 0;
   disabledNextPage: boolean = false;
   disabledPreviousPage: boolean = true;
-
-
-
   constructor(private ct: ChuongtruyenService, private pd: TruyenService, private _route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id_truyen = this._route.snapshot.paramMap.get('id')!;
+    const stt = this._route.snapshot.paramMap.get('stt')!;
+
     this.getID();
     this.ct.getChuongtruyen().subscribe({
       next: (value) => {
@@ -32,6 +31,16 @@ export class DoctruyenComponent implements OnInit {
         this.listCHuong = _.orderBy(this.listCHuong, 'sothutu');
       },
     })
+
+    this.currentIndex = +stt - 1;
+    if (this.currentIndex > 0) {
+      this.disabledPreviousPage = false;
+    }
+    setTimeout(() => {
+      if (this.currentIndex === this.listCHuong.length - 1) {
+        this.disabledNextPage = true;
+      }
+    }, 50);
   }
 
   getID(id?: any) {
@@ -47,6 +56,7 @@ export class DoctruyenComponent implements OnInit {
   loadPage(next: boolean) {
     if (next) {
       this.currentIndex++;
+
       if (this.currentIndex < this.listCHuong.length - 1) {
         // Hiển thị phần tử tiếp theo
         this.listCHuong[this.currentIndex].noidung;

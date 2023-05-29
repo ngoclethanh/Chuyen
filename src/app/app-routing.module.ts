@@ -27,7 +27,7 @@ import { DangkyComponent } from './component/dangky/dangky.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'chitiet/:id', component: ChitietComponent},
-  {path: 'doctruyen/:id', component: DoctruyenComponent},
+  {path: 'doctruyen/:id/:stt', component: DoctruyenComponent},
   {path: 'thuvien', component: ThuvienComponent},
   {path: 'dangky', component: DangkyComponent},
 

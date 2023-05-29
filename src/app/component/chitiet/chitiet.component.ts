@@ -14,12 +14,12 @@ export class ChitietComponent implements OnInit {
 
   truyen: any;
   theloai: any = [];
-  tacgia: any =[];
+  tacgia: any = [];
   chuongtruyen: Array<any> = [];
   thuvien: Array<any> = [];
   id_truyen: string = '';
   tentheloai: string = '';
-  tentacgia:string='';
+  tentacgia: string = '';
 
 
   constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TheloaiService, private tg: TacgiaService, private _route: ActivatedRoute) {
@@ -32,7 +32,7 @@ export class ChitietComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.tentheloai = this.theloai?.find((x: any) => x.id_theloai === this.truyen.id_theloai)?.tentheloai;
-     this.tentacgia =this.tacgia?.find((x: any) => x.id_tacgia === this.truyen.id_tacgia)?.tentacgia;
+      this.tentacgia = this.tacgia?.find((x: any) => x.id_tacgia === this.truyen.id_tacgia)?.tentacgia;
 
     }, 50);
 
@@ -67,24 +67,7 @@ export class ChitietComponent implements OnInit {
       this.tacgia = res;
     })
   }
-  // getID(id?: any) {
-  //   this._route.paramMap.subscribe(query => {
-  //     let id = query.get("id");
 
-
-
-  //     // this.ct.getID(id).subscribe(res => {
-  //     //   this.chuongtruyen = res;
-  //     // })
-
-
-
-
-  //   }
-
-
-  //   )
-  // }
   onAddThuvien(truyen: any) {
     let index = this.thuvien.findIndex((item: any) => {
       return item.id_truyen == truyen.id_truyen

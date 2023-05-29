@@ -43,7 +43,7 @@
             <p class="text-dark font-weight-medium mb-0 mr-2">{{truyen.mota}}</p>
 
             <div class="d-flex align-items-center mb-4 pt-2">
-                <button class="btn btn-primary px-3" routerLink="/doctruyen/{{id_truyen}}/{{1}}"><i
+                <button class="btn btn-primary px-3" (click)="docTruyenAll(truyen.id_truyen)"><i
                         class="fas fa-eye text-primary mr-1"></i> Đọc truyện</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 <button class="btn btn-primary px-3" (click)="onAddThuvien(truyen)" href="/thuvien"><i
@@ -79,7 +79,7 @@
                         <tr>
                         <tr *ngFor="let ct of chuongtruyen">
 
-                            <td><a routerLink="/doctruyen/{{ct.id_truyen}}/{{ct.sothutu}}">{{ct.tenchuong}} </a></td>
+                            <td><a href="javascript:void(0)" (click)="getIdTruyenByStt(ct)" >{{ct.tenchuong}} </a></td>
 
                         </tr>
 

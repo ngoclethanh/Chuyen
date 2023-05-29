@@ -32,6 +32,7 @@ fiterStatus=""
   ngOnInit(): void {
     this.getTruyen();
     this.getTheloai();
+    sessionStorage.removeItem('stt');
 
   }
   getTruyen(){

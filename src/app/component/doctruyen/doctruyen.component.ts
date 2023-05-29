@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TruyenService } from 'src/app/services/truyen.service';
 import { ChuongtruyenService } from 'src/app/services/chuongtruyen.service';
 import * as _ from 'lodash'
@@ -17,11 +17,10 @@ export class DoctruyenComponent implements OnInit {
   currentIndex = 0;
   disabledNextPage: boolean = false;
   disabledPreviousPage: boolean = true;
-  constructor(private ct: ChuongtruyenService, private pd: TruyenService, private _route: ActivatedRoute) { }
+  constructor(private ct: ChuongtruyenService, private pd: TruyenService, private _route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const id_truyen = this._route.snapshot.paramMap.get('id')!;
-    const stt = this._route.snapshot.paramMap.get('stt')!;
 
     this.getID();
     this.ct.getChuongtruyen().subscribe({
@@ -31,8 +30,8 @@ export class DoctruyenComponent implements OnInit {
         this.listCHuong = _.orderBy(this.listCHuong, 'sothutu');
       },
     })
-
-    this.currentIndex = +stt - 1;
+    let stt = sessionStorage.getItem('stt')
+    this.currentIndex = stt ? +stt - 1 : 0;
     if (this.currentIndex > 0) {
       this.disabledPreviousPage = false;
     }
@@ -56,7 +55,6 @@ export class DoctruyenComponent implements OnInit {
   loadPage(next: boolean) {
     if (next) {
       this.currentIndex++;
-
       if (this.currentIndex < this.listCHuong.length - 1) {
         // Hiển thị phần tử tiếp theo
         this.listCHuong[this.currentIndex].noidung;
@@ -78,6 +76,8 @@ export class DoctruyenComponent implements OnInit {
       }
 
     }
+    sessionStorage.setItem('stt', this.listCHuong[this.currentIndex].sothutu)
+
   }
 }
 

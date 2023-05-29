@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TruyenService } from 'src/app/services/truyen.service';
 import { TheloaiService } from 'src/app/services/theloai.service';
 import { TacgiaService } from 'src/app/services/tacgia.service';
@@ -22,7 +22,7 @@ export class ChitietComponent implements OnInit {
   tentacgia: string = '';
 
 
-  constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TheloaiService, private tg: TacgiaService, private _route: ActivatedRoute) {
+  constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TheloaiService, private tg: TacgiaService, private _route: ActivatedRoute,private router:Router) {
     this.id_truyen = this._route.snapshot.paramMap.get('id')!;
     this.getTheloai();
     this.getIdtruyen();
@@ -56,7 +56,18 @@ export class ChitietComponent implements OnInit {
 
 
   }
-
+  docTruyenAll(id_truyen:string){
+    sessionStorage.removeItem('stt');
+    this.router.navigateByUrl(`/doctruyen/${id_truyen}`, { skipLocationChange: true }).then(); 
+  }
+  getIdTruyenByStt(item:any){
+  this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+    sessionStorage.setItem('stt',item.sothutu?.toString());
+        this.router
+          .navigate(['doctruyen', item.id_truyen])
+          .then();
+      });
+  }
   getIdtruyen() {
     this.pd.getID(this.id_truyen).subscribe(res => {
       this.truyen = res;

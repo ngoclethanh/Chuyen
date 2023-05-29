@@ -1,0 +1,181 @@
+<app-left-nav></app-left-nav>
+    <!-- Modal content-->
+    <body>
+      <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo mr-5" href="index.html" ><img src="/assets/User/Anh/logo1.png"  class="mr-2" style="width: 100px; height: 100px;" alt="logo"/></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="icon-menu"></span>
+            </button>
+            <ul class="navbar-nav mr-lg-2">
+              <li class="nav-item nav-search d-none d-lg-block">
+                <div class="input-group">
+                  <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                    <span class="input-group-text" id="search">
+                      <i class="icon-search"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+              </li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="icon-bell mx-0"></i>
+                  <span class="count"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <p class="mb-0 font-weight-normal float-left dropdown-header"></p>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-success">
+                        <i class="ti-info-alt mx-0"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <h6 class="preview-subject font-weight-normal"></h6>
+                      <p class="font-weight-light small-text mb-0 text-muted">
+                      </p>
+                    </div>
+                  </a>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-warning">
+                        <i class="ti-settings mx-0"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <h6 class="preview-subject font-weight-normal">Settings</h6>
+                      <p class="font-weight-light small-text mb-0 text-muted">
+                        Private message
+                      </p>
+                    </div>
+                  </a>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-info">
+                        <i class="ti-user mx-0"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <h6 class="preview-subject font-weight-normal"></h6>
+                      <p class="font-weight-light small-text mb-0 text-muted">
+                      
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              
+              <li class="nav-item nav-settings d-none d-lg-flex">
+                <a class="nav-link" href="#">
+                  <i class="icon-ellipsis"></i>
+                </a>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="icon-menu"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+          <!-- partial:partials/_settings-panel.html -->
+         
+         
+          <!-- partial -->
+          <!-- partial:partials/_sidebar.html -->
+          <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Dashboard</span>
+                </a>
+              </li>
+             
+             
+            
+              <li class="nav-item">
+                <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="menu-title" href="/tacgia" >Quản lý tác giả</a>
+            </li>
+            <li class="nav-item">
+                <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="menu-title" href="/theloai" >Quản lý thể loại</a>
+            </li>
+            <li class="nav-item">
+              <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="menu-title" href="/truyen" >Quản lý truyện</a>
+          </li>
+          <li class="nav-item">
+            <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="menu-title" href="/chuong" >Quản lý chương truyện</a>
+        </li>
+        <li class="nav-item">
+            <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="menu-title" href="/docgia" >Quản lý độc giả</a>
+        </li>
+        <li class="nav-item">
+            <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="menu-title" href="/danhgia" >Quản lý đánh giá</a>
+        </li>
+               
+              
+            </ul>
+    </nav>
+    <!-- partial -->
+    
+    <div class="main-panel">
+    <div class="content-wrapper">
+    <div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          
+    <div class="card-body">
+    <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <a style='Color:blue;font-family:Garamond' style="font-size:50px">Sửa </a>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form action="" method="POST" [formGroup]="danhgiaForm" (ngSubmit)="onEdit()">
+            <div class="form-group">
+                <label for="giaban">ID_danhgia</label>
+             <input type="text"class="form-control" id="id_danhgia" formControlName="id_danhgia" >
+              </div> 
+            <div class="form-group">
+              <label for="giaban">ID_truyen</label>
+           <input type="text"class="form-control" id="id_truyen" formControlName="id_truyen" >
+            </div> 
+           
+ 
+              <div class="form-group">
+                <label for="giaban">Id_docgia</label>
+             <input type="text"class="form-control" id="id_docgia" formControlName="id_docgia" >
+              </div>
+             
+              <div class="form-group">
+                <label for="giaban">Nội dung</label>
+             <input type="text"class="form-control" id="noidung" formControlName="noidung" >
+              </div>
+              <div class="form-group">
+                <label for="giaban">Ngày đăng</label>
+             <input type="text"class="form-control" id="ngaydang"  formControlName="ngaydang">
+              </div>
+              
+              
+              <button type="submit" class="btn btn-danger"  >OK</button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" class="btn btn-danger"  >Close</button>
+          </form>
+          
+        </div>
+     
+      </div>
+ 
+      <app-afooter></app-afooter>
+

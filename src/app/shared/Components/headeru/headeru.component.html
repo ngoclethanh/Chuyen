@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JoeBLog landing page.">
+    <meta name="author" content="Devcrud">
+    <title>MXH </title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="/assets/User/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + JoeBLog main styles -->
+	<link rel="stylesheet" href="/assets/User/css/joeblog.css">
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/assets/Users/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/assets/Users/css/style.css" rel="stylesheet">
+   
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    
+    <!-- page First Navigation -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/User/Anh/logo1.png" alt="">
+            </a>
+           
+            <div class="socials">
+                <a href="javascript:void(0)"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)"><i class="ti-twitter"></i></a>
+                <a href="javascript:void(0)"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)"><i class="ti-youtube"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!-- End Of First Navigation -->
+
+    <!-- Page Second Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light bg-primary sticky-top">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav" style="margin-left: 150px;">                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home">Home</a>
+                    </li>
+                    
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="/thuvien">Danh sách yêu thích</a>
+                    </li>
+                    <div class="col-md-2">
+                        <select class="form-select"  >
+                            <option *ngFor="let tl of theloai" [value]="tl.id_theloai">{{tl.tentheloai}}</option>
+                          </select>
+                        
+                    </div> 
+                </ul>
+            </div>
+                <div class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/dangnhap" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng nhập</a>
+                        <a href="/dangky" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng ký</a>
+
+                    </li>
+                </div>
+            
+        </div>
+    </nav>
+  

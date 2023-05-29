@@ -1,0 +1,51 @@
+<app-headeru></app-headeru>
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5" style="color: black;">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3"></h1>
+        <div class="d-inline-flex">
+            <p class="m-0"><a href="/home">Home</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0"><a routerLink="/chitiet/{{truyen.id_truyen}}">{{truyen.tentruyen}}</a></p>
+            <p class="m-0 px-2">-</p>
+            <p class="m-0"><a routerLink="/doctruyen/{{chuong.id_chuong}}">{{chuong.tenchuong}}</a></p>
+
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Shop Detail Start -->
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+       
+
+        <div class="col-lg-7 pb-5">
+            <h3 class="font-weight-semi-bold">{{truyen.tentruyen}}</h3>
+            
+            
+            <p class="text-dark font-weight-medium mb-0 mr-2">{{chuong.tenchuong}}</p>
+
+            
+        </div>
+    </div>
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="nav nav-tabs justify-content-center border-secondary mb-4" >
+                <a class="nav-item nav-link active">{{listCHuong[currentIndex]?.noidung }}</a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-danger btn-sm" (click)="loadPage(false)" [disabled]="disabledPreviousPage">Previous </button>
+                 <span class="p-2 btn btn-default">Chương {{listCHuong[currentIndex]?.sothutu }}</span>
+                <button type="button" class="btn btn-info btn-sm" (click)="loadPage(true)"  [disabled]="disabledNextPage">Next </button>
+            </div>
+           
+        </div>
+    </div>
+</div>
+<!-- Shop Detail End -->
+
+
+
+<app-footer></app-footer>

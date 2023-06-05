@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TruyenComponent } from './truyen/truyen.component';
 import { TruyenCreateComponent } from './truyen-create/truyen-create.component';
 import { TruyenEditComponent } from './truyen-edit/truyen-edit.component';
@@ -36,6 +36,8 @@ import { DoctruyenComponent } from './component/doctruyen/doctruyen.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DangkyComponent } from './component/dangky/dangky.component';
+import { DangnhapComponent } from './component/dangnhap/dangnhap.component';
+import { DangtruyenComponent } from './component/dangtruyen/dangtruyen.component';
 
 @Injectable({providedIn: 'root'})
 export class ServiceNameService {
@@ -68,6 +70,8 @@ export class ServiceNameService {
     ThuvienComponent,
     DoctruyenComponent,
     DangkyComponent,
+    DangnhapComponent,
+    DangtruyenComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +83,7 @@ export class ServiceNameService {
     HttpClientModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    FormsModule
     //Ng2SearchPipeModule,
   ],
   providers: [],

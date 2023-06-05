@@ -73,12 +73,91 @@
             </div>
                 <div class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="/dangnhap" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng nhập</a>
+                        <a *ngIf="user !== null" class="btn btn-dark mt-1 btn-sm" routerLink="/dangtruyen" href="javascript:void(0)">Đăng truyện</a>
+                        <a (click)="onSwitchLogin()" href="javascript:void(0)" class="ml-4 btn btn-dark mt-1 btn-sm">{{user === null ? 'Đăng nhập': 'Đăng xuất'}}</a>
                         <a href="/dangky" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng ký</a>
-
+                        <a class="ml-4">{{user.tendaydu}}</a>
                     </li>
                 </div>
             
         </div>
     </nav>
+    <div class="modal fade"  #modal id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Đăng tryện</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form #form="ngForm" (submit)="save()">
   
+          <div class="modal-body">
+  
+            <div class="mt-2 p-dialog-body grid p-fluid">
+  
+              <div class="col-6">
+                <div class="p-field">
+                  <span class="p-float-label">
+                    <input type="tex" class="p-inputtext-sm"  [(ngModel)]="model.tentruyen"
+                      name="tentruyen" />
+                    <label for="inputtext">Tên chuyện*</label>
+                  </span>
+                </div>
+              </div>
+  
+              <div class="col-6">
+                <div class="p-field">
+                  <span class="p-float-label">
+                    <input  type="text" [(ngModel)]="model.vanan" name="vanan" class="p-inputtext-sm"
+                       />
+                    <label for="inputtext">Mô tả*</label>
+                  </span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-field">
+                  <span class="p-float-label">
+                    <input  type="text" [(ngModel)]="model.anh" class="p-inputtext-sm" name="anh"
+                       />
+                    <label for="inputtext">Ảnh *</label>
+                  </span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-field">
+                    <select class="form-select" [(ngModel)]="model.trangthai" name="trangthai">
+                        <option selected>Trạng thái</option>
+                        <option value="'Đang ra'">Đang ra</option>
+                        <option value="'Hoàn thành'">Hoàn thành</option>
+                      </select>
+                  <span class="p-float-label">
+                  </span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="p-field">
+                    <select class="form-select" name="id_theloai" [(ngModel)]="model.id_theloai" *ngFor="let item of theloai">
+                        <option  [value]="item.id_theloai">{{item.tentheloai}}</option>
+                      </select>
+                  <span class="p-float-label">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="p-dialog-footer p-p-0 p-mt-3">
+              <button pButton label="Lưu" type="submit" icon="pi pi-check" class="mr-2"></button>
+              <button pButton label="Đóng" type="reset" icon="pi pi-times" class="p-button-danger"></button>
+            </div> -->
+          </div>
+          <div class="modal-footer">
+            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+  
+      </div>
+    </div>
+  </div>

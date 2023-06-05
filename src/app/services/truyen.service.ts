@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Truyen } from '../models/Truyen';
 
 @Injectable({
@@ -40,6 +40,18 @@ export class TruyenService {
     }else{
       return [];
     }
+  }
+  login(data:any): Observable<any>{ 
+    return this.http.post<any>('https://localhost:44342/api/Truyens/Login' ,data).pipe(
+      map((user) => {
+        //debugger;
+        sessionStorage.setItem('user', JSON.stringify(user));
+        return user;
+      })
+    );
+  }
+  logout() {
+    sessionStorage.removeItem('user');
   }
   saveThuvien(thuvien:any){
     let thuvienjson =JSON.stringify(thuvien);

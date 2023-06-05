@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderuComponent } from './Components/headeru/headeru.component';
 import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
 import { AfooterComponent } from './Admin/afooter/afooter.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { AfooterComponent } from './Admin/afooter/afooter.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     HeaderuComponent,

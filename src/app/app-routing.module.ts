@@ -23,6 +23,8 @@ import { TacgiaCreateComponent } from './tacgia-create/tacgia-create.component';
 import { ThuvienComponent } from './component/thuvien/thuvien.component';
 import { DoctruyenComponent } from './component/doctruyen/doctruyen.component';
 import { DangkyComponent } from './component/dangky/dangky.component';
+import { DangnhapComponent } from './component/dangnhap/dangnhap.component';
+import { DangtruyenComponent } from './component/dangtruyen/dangtruyen.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -30,8 +32,8 @@ const routes: Routes = [
   {path: 'doctruyen/:id', component: DoctruyenComponent},
   {path: 'thuvien', component: ThuvienComponent},
   {path: 'dangky', component: DangkyComponent},
-
-
+  {path: 'user/dangnhap', component: DangnhapComponent},
+  {path: 'dangtruyen', component: DangtruyenComponent},
   //ADMIN
   {path: 'truyen', component: TruyenComponent},
   {path: 'truyen/add', component: TruyenCreateComponent},

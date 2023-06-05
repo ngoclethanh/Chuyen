@@ -1,0 +1,62 @@
+
+
+<app-headeru></app-headeru>
+
+
+<div class="modal-content">
+  <div class="modal-header" style="padding:25px 40px;">
+    <a style='Color:blue;font-family:Garamond' style="font-size:30px">Thêm truyện</a>
+  </div>
+  <div class="modal-body" style="padding:40px 50px;">
+    <form action="" method="POST" [formGroup]="dangtruyenForm" (ngSubmit)="onCreate()">
+      <div class="form-group">
+          <label for="giaban">Id truyện</label>
+       <input type="text"class="form-control" id="id_truyen" formControlName="id_truyen" >
+        </div> 
+        <div class="form-group">
+          <label for="giaban">Tên truyện</label>
+       <input type="text"class="form-control" id="tentruyen" formControlName="tentruyen" >
+        </div> 
+        <div class="form-group">
+            <label for="giaban">Id tác giả</label>
+         <input type="text"class="form-control" id="id_tacgia" formControlName="id_tacgia" >
+          </div> 
+        <div class="form-group">
+          <label for="giaban">Tên tác giả</label>
+       <input type="text"class="form-control" id="tentacgia" formControlName="tentacgia" >
+        </div>
+        <div class="form-group">
+          <label for="giaban">Ảnh</label>
+       <input type="text"class="form-control" id="anh" formControlName="anh" >
+        </div>
+        
+        <div class="form-group">
+          <label for="giaban">Tên thể loại</label>
+       <input type="text"class="form-control" id="tentheloai" formControlName="tentheloai" >
+        </div>
+        
+        <div class="form-group">
+          <label for="giaban">Trạng thái</label>
+       <input type="text"class="form-control" id="trangthai" formControlName="trangthai"  >
+        </div>
+        <div class="form-group">
+            <label for="giaban">Mô tả</label>
+         <input type="text"class="form-control" id="mota" formControlName="mota"  >
+          </div>
+          
+        
+        <button type="submit" class="btn btn-danger"  >Thêm truyện</button>&nbsp;&nbsp;&nbsp;&nbsp;
+    </form>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+<app-footer></app-footer>

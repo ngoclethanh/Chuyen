@@ -29,7 +29,9 @@ theloai:any;
     tentheloai:'',
     trangthai:'',
     mota:'',
+    id_theloai:0
   });
+  user:any = {};
 
   constructor(
      private td:TruyenService,  private tg: TacgiaService,
@@ -47,30 +49,28 @@ theloai:any;
       this.tacgia = res.result;
     });
     this.tl.getTheloai().subscribe((res) => {
-      this.theloai = res.result;
+      this.theloai = res;
+      console.log(this.theloai);
+      
     });
 
   }
   ngOnInit(): void {
     this.getALL();
+    this.user = JSON.parse(sessionStorage.getItem('user')!);
   }
   get f() {
     return this.dangtruyenForm.controls;
   }
   onCreate(): any {
     this.submited = true;
+    const data= this.dangtruyenForm.getRawValue();
+    data.id_tacgia = this.user?.id_docgia;
+    data.id_theloai =+data.id_theloai!;
     if (this.dangtruyenForm.invalid) {
       return false;
     }
-    //thêm
-    
-    this.tg.create(this.dangtruyenForm.value).subscribe((res) => {
-      this._route.navigate(['/home']);
-    });
-    this.tl.create(this.dangtruyenForm.value).subscribe((res) => {
-      this._route.navigate(['/home']);
-    });
-    this.td.create(this.dangtruyenForm.value).subscribe((res) => {
+    this.td.create(data).subscribe((res) => {
       this._route.navigate(['/home']);
     });
   }

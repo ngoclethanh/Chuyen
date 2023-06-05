@@ -21,15 +21,12 @@ theloai:any;
   submited: any;
 
   dangtruyenForm = this.fb.group({
-    id_truyen:'',
-    tentruyen:'',
     id_tacgia:'',
-    tentacgia:'',
     anh:'',
-    tentheloai:'',
     trangthai:'',
-    mota:'',
-    id_theloai:0
+    vanan:'',
+    id_theloai:0,
+    tentruyen:null,
   });
   user:any = {};
 
@@ -65,7 +62,7 @@ theloai:any;
   onCreate(): any {
     this.submited = true;
     const data= this.dangtruyenForm.getRawValue();
-    data.id_tacgia = this.user?.id_docgia;
+    data.id_tacgia = this.user?.id_tacgia;
     data.id_theloai =+data.id_theloai!;
     if (this.dangtruyenForm.invalid) {
       return false;

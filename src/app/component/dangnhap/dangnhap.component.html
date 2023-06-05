@@ -1,25 +1,28 @@
-	<form>
-		<div style="background-color: #FFF; width: 500px; height: 450PX; border: 1px solid #CCC; margin: 100px auto; padding-left: 20px">
-			<br />
-			<h1>ĐĂNG NHẬP</h1>
-			<br />
-			<br />
-			<input type="text" [(ngModel)]="model.username" name="username" placeholder="Email/Tên đăng nhập" style="width: 360px; line-height: 30px; margin-top: 3px"/>
-			<br />
-			<br />
-			<input type="password" [(ngModel)]="model.password" name="password" placeholder="Mật khẩu" style="width: 360px; line-height: 30px; margin-top: 3px"/>
-			<br />
-			<br />
-			<input id="chkRemember" type="checkbox" /> <label for="chkRemember">Ghi nhớ mật khẩu</label>
-			<br />
-			<br />
-			<input type="button" (click)="  onLogin()"  value="ĐĂNG NHẬP" style="height: 40px; width: 360px; background-color:#fc7171; color: #FFF; border: 0px"/>
-			<br />
-			<br />
-			<a href="#" style="display: block; float: left">Quên mật khẩu?</a> 
-			<a href="#" style="display: block; float: left">Đăng ký </a>
+<form #form="ngForm" (submit)="onLogin()">
+	<div
+		style="background-color: #FFF; width: 500px; height: 450PX; border: 1px solid #CCC; margin: 100px auto; padding-left: 20px">
+		<br />
+		<h1>ĐĂNG NHẬP</h1>
+		<br />
+		<br />
+		<input type="text" [(ngModel)]="model.username" required name="username" #username="ngModel"
+			placeholder="Email/Tên đăng nhập" style="width: 360px; line-height: 30px; margin-top: 3px" /> <br>
+		<small class="error error-message" *ngIf="username.errors?.['required'] &&  (username?.dirty || username?.touched || form?.submitted)">This field is required</small>
+		<br />
+		<br />
+		<input type="password" [(ngModel)]="model.password" #password="ngModel" required name="password"
+			placeholder="Mật khẩu" style="width: 360px; line-height: 30px; margin-top: 3px" />
+		<br>
+		<small class="error error-message" *ngIf="password.errors?.['required'] &&  (password?.dirty || password?.touched || form?.submitted)">This field is required</small>
+		<br />
+		
+		<br />
+		<br />
+		<input type="submit"  value="ĐĂNG NHẬP"
+			style="height: 40px; width: 360px; background-color:#fc7171; color: #FFF; border: 0px" />
+		<br />
+		<br />
+		<a href="#" style="display: block; float: left">Đăng ký </a>
 
-		</div>
-	</form>
-
-<app-footer></app-footer>
+	</div>
+</form>

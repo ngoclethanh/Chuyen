@@ -11,11 +11,11 @@ import { TheloaiService } from '../services/theloai.service';
 export class TheloaiEditComponent implements OnInit {
   submited: boolean = false;
   theloais: any;
+  mypro = {id_theloai:null,tentheloai:null}
 
   theloaiForm = this.fb.group({
-    id_theloai: ['', Validators.required],
+    id_theloai:null,
     tentheloai: ['', Validators.required],
-    mota: ['', Validators.required],
   });
   constructor(
     private ct: TheloaiService,
@@ -35,15 +35,8 @@ export class TheloaiEditComponent implements OnInit {
     this.router.paramMap.subscribe((query) => {
       let id = query.get('id');
       this.ct.getID(id).subscribe((res) => {
-        let mypro = res;
-        this.theloaiForm = this.fb.group({
-          id_theloai: [
-            { value: mypro.id_theloai, disabled: true },
-            Validators.required,
-          ],
-          tentheloai: [mypro.tentheloai, Validators.required],
-          mota: [mypro.mota, Validators.required],
-        });
+        this. mypro = res;
+        this.theloaiForm.patchValue(this.mypro);
       });
     });
   }
@@ -57,14 +50,16 @@ export class TheloaiEditComponent implements OnInit {
     return this.theloaiForm.controls;
   }
   onEdit(): any {
+    console.log(this.mypro);
+    
     this.submited = true;
     if (this.theloaiForm.invalid) {
       return false;
     }
     //sửa
     //sửa
-  if (this.theloaiForm.value.id_theloai != null) {
-    this.ct.update(this.theloaiForm.value, + this.theloaiForm.value.id_theloai).subscribe(res =>{
+  if (this.mypro.id_theloai != null) {
+    this.ct.update(this.theloaiForm.getRawValue(), + this.mypro.id_theloai!).subscribe(res =>{
       this._router.navigate(['theloai']);
     })
   }

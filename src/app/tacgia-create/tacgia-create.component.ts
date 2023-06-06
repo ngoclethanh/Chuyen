@@ -13,11 +13,9 @@ export class TacgiaCreateComponent {
   submited: any;
 
   tacgiaForm = this.fb.group({
-    id_tacgia: '',
     tentacgia:'',
-    ngaysinh: '',
-    gioitinh: '',
-
+    username: '',
+    email:'test@gmail.com'
   });
 
   constructor(

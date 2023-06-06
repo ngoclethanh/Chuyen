@@ -13,13 +13,11 @@ import { query } from '@angular/animations';
 export class TacgiaEditComponent {
   submited: boolean = false;
   tacgia: any;
-
+  mypro:any;
 
   tacgiaForm = this.fb.group({
-    id_tacgia:['',Validators.required],
     tentacgia:['',Validators.required],
-    ngaysinh:['',Validators.required],
-    gioitinh:['',Validators.required],
+    username:['',Validators.required],
 
   });
   constructor(private pd:TacgiaService, private _router: Router,private fb:FormBuilder,private router:ActivatedRoute) { }
@@ -36,14 +34,9 @@ getALL(){
     this.router.paramMap.subscribe(query =>{
       let id = query.get("id");
       this.pd.getID(id).subscribe(res =>{
-        let mypro = res;
-        this.tacgiaForm = this.fb.group({
-          id_tacgia:[mypro.id_tacgia,Validators.required],
-          tentacgia:[mypro.tentacgia,Validators.required],
-          ngaysinh:[mypro.ngaysinh,Validators.required],
-          gioitinh:[mypro.gioitinh,Validators.required],
-
-        });
+        this.mypro = res;
+        this.tacgiaForm.patchValue(this.mypro);
+        this.tacgiaForm.get('username')?.disable();
       })
       
     })
@@ -64,10 +57,9 @@ getALL(){
   onEdit(): any{
     this.submited= true;
     if(this.tacgiaForm.invalid){return false}
-    console.log(this.tacgiaForm.value);
   //sửa
-  if (this.tacgiaForm.value.id_tacgia != null) {
-    this.pd.update(this.tacgiaForm.value, + this.tacgiaForm.value.id_tacgia).subscribe(res =>{
+  if (this.mypro.id_tacgia != null) {
+    this.pd.update(this.tacgiaForm.getRawValue(), + this.mypro.id_tacgia).subscribe(res =>{
       this._router.navigate(['/tacgia']);
     })
   }

@@ -150,9 +150,6 @@
                     
                             <th>Id_theloai</th>
                             <th >Tên thể loại</th>
-                            
-                            <th>Mô tả</th>&nbsp;&nbsp;&nbsp;&nbsp;
-    
                             <th>Thao Tác</th>
                         </tr>
                       </thead>
@@ -162,7 +159,6 @@
                           
                             <td> {{pd.id_theloai}} </td>
                             <td> {{pd.tentheloai}} </td>
-                            <td> {{pd.mota}} </td>
     
                             <td> <a routerLink="edit/{{pd.id_theloai}}" class="btn btn-primary" >Sửa</a> </td>
                             <td> <a href="javascript:void()"  class="btn btn-danger"(click)="onDelete(pd.id_theloai)" >Xóa</a> </td>

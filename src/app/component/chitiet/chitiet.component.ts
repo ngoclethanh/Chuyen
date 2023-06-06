@@ -41,8 +41,6 @@ export class ChitietComponent implements OnInit {
     this.ct.getChuongtruyen().subscribe(res => {
       this.chuongtruyen = res;
       this.chuongtruyen = this.chuongtruyen.filter((chuongtruyen) => chuongtruyen.id_truyen === +this.id_truyen);
-      console.log(this.chuongtruyen);
-      
     })
 
 

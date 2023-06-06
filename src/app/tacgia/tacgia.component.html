@@ -148,9 +148,7 @@
                           
                             <th>Id_tacgia</th>
                             <th>Tên tác giả</th>
-                            <th>Ngày sinh</th>
-                            <th>Giới tính</th>
-    
+                            <th>Tên tài khoản</th>
                             <th>Thao Tác</th>
                         </tr>
                       </thead>
@@ -159,9 +157,7 @@
                           <tr *ngFor="let pd of tacgia">
                             <td> {{pd.id_tacgia}} </td>
                             <td> {{pd.tentacgia}} </td>
-                            <td> {{pd.ngaysinh}} </td>
-                            <td> {{pd.gioitinh}} </td>
-    
+                            <td> {{pd.username}} </td>
                             <td> <a routerLink="edit/{{pd.id_tacgia}}" class="btn btn-primary" >Sửa</a> </td>
                             <td> <a href="javascript:void()"  class="btn btn-danger"(click)="onDelete(pd.id_tacgia)" >Xóa</a> </td>
                           

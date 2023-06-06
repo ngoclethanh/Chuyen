@@ -13,9 +13,7 @@ export class TheloaiCreateComponent {
   submited: any;
 
   theloaiForm = this.fb.group({
-    id_theloai: '',
     tentheloai:'',
-    mota: '',
   });
 
   constructor(

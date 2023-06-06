@@ -26,7 +26,7 @@ export class DoctruyenComponent implements OnInit {
     this.ct.getChuongtruyen().subscribe({
       next: (value) => {
         this.listCHuong = value;
-        this.listCHuong = this.listCHuong.filter((x: any) => x.id_truyen === id_truyen)
+        this.listCHuong = this.listCHuong.filter((x: any) => x.id_truyen === +id_truyen)
         this.listCHuong = _.orderBy(this.listCHuong, 'sothutu');
       },
     })

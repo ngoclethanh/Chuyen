@@ -38,6 +38,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DangkyComponent } from './component/dangky/dangky.component';
 import { DangnhapComponent } from './component/dangnhap/dangnhap.component';
 import { DangtruyenComponent } from './component/dangtruyen/dangtruyen.component';
+import { BinhluanComponent } from './component/binhluan/binhluan.component';
 
 @Injectable({providedIn: 'root'})
 export class ServiceNameService {
@@ -71,7 +72,8 @@ export class ServiceNameService {
     DoctruyenComponent,
     DangkyComponent,
     DangnhapComponent,
-    DangtruyenComponent
+    DangtruyenComponent,
+    BinhluanComponent
   ],
   imports: [
     BrowserModule,

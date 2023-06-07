@@ -1,19 +1,4 @@
 <app-headeru></app-headeru>
-<!-- Page Header Start -->
-<div class="container-fluid bg-secondary mb-5" style="color: black;">
-    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-        <h1 class="font-weight-semi-bold text-uppercase mb-3">Thông tin truyện</h1>
-        <div class="d-inline-flex">
-            <p class="m-0"><a href="/home">Home</a></p>
-            <p class="m-0 px-2">-</p>
-            <p class="m-0"><a routerLink="/chitiet/{{truyen.id_truyen}}">{{truyen.tentruyen}}</a></p>
-            <!-- <p class="m-0"><a routerLink="/doctruyen/{{truyen.id_truyen}}">{{chuongtruyen.tenchuong}}</a></p> -->
-
-        </div>
-    </div>
-</div>
-<!-- Page Header End -->
-
 
 <!-- Shop Detail Start -->
 <div class="container-fluid py-5">
@@ -22,7 +7,7 @@
             <div id="product-carousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner border">
                     <div class="carousel-item active">
-                        <img class="w-65 h-75" src="/assets/User/Anh/{{truyen.anh}}" alt="Image">
+                        <img class="w-85 h-20" style="height:500px" src="/assets/User/Anh/{{truyen.anh}}" alt="Image">
                     </div>
 
                 </div>
@@ -37,19 +22,22 @@
             <p class="text-dark font-weight-medium mb-0 mr-2">{{tentacgia}}</p>
             <p class="text-dark font-weight-medium mb-0 mr-2">{{truyen.trangthai}}</p>
             <p class="text-dark font-weight-medium mb-0 mr-2">{{truyen.ngaydang}}</p>
+            <p class="text-dark font-weight-medium mb-0 mr-2">Số chương: {{truyen.sochuong}}</p>
+
             <p class="text-dark font-weight-medium mb-0 mr-2">{{tentheloai}}</p>
 
             <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Văn án</a>
-            <p class="text-dark font-weight-medium mb-0 mr-2">{{truyen.mota}}</p>
+            <p class="text-dark font-weight-medium mb-0 mr-2">{{truyen.vanan}}</p>
 
             <div class="d-flex align-items-center mb-4 pt-2">
                 <button class="btn btn-primary px-3" (click)="docTruyenAll(truyen.id_truyen)"><i
                         class="fas fa-eye text-primary mr-1"></i> Đọc truyện</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button class="btn btn-primary px-3" (click)="onAddThuvien(truyen)" href="/thuvien"><i
-                        class="fa fa-shopping-cart mr-1"></i> Thêm vào danh sách yêu thích</button>
+                        class="fa fa-heart mr-1"></i> Yêu thích</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       
             </div>
-            <div class="d-flex pt-2">
+            <!-- <div class="d-flex pt-2">
                 <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
                 <div class="d-inline-flex">
                     <a class="text-dark px-2" href="">
@@ -65,7 +53,7 @@
                         <i class="fab fa-pinterest"></i>
                     </a>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="row px-xl-5">
@@ -89,7 +77,32 @@
         </div>
     </div>
     <!-- Shop Detail End -->
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                <a class="nav-item nav-link active" data-toggle="tab" style="margin-left:-1050px" href="#tab-pane-1"><i
+                    class="fa fa-comment mr-1"></i>Bình luận</a>
+            </div>
+            <div class="table-responsive pt-3" >
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
 
+                            <tr *ngFor="let dg of danhgia">
+                                <img class="w-85 h-20" style="height:500px" src="/assets/User/Anh1/{{anh}}" alt="Image">
+
+    
+                                    <td><a >{{tendaydu}}<br />
+                                        {{dg.noidung}} <br />
+                                        {{dg.ngaydang}}
+                                    </a></td>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+                
+        </div>
+    </div>
 
 
     <app-footer></app-footer>

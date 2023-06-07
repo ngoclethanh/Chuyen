@@ -25,6 +25,7 @@ import { DoctruyenComponent } from './component/doctruyen/doctruyen.component';
 import { DangkyComponent } from './component/dangky/dangky.component';
 import { DangnhapComponent } from './component/dangnhap/dangnhap.component';
 import { DangtruyenComponent } from './component/dangtruyen/dangtruyen.component';
+import { BinhluanComponent } from './component/binhluan/binhluan.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -34,6 +35,8 @@ const routes: Routes = [
   {path: 'dangky', component: DangkyComponent},
   {path: 'user/dangnhap', component: DangnhapComponent},
   {path: 'dangtruyen', component: DangtruyenComponent},
+  {path: 'binhluan', component: BinhluanComponent},
+
   //ADMIN
   {path: 'truyen', component: TruyenComponent},
   {path: 'truyen/add', component: TruyenCreateComponent},

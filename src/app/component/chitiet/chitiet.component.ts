@@ -4,6 +4,10 @@ import { TruyenService } from 'src/app/services/truyen.service';
 import { TheloaiService } from 'src/app/services/theloai.service';
 import { TacgiaService } from 'src/app/services/tacgia.service';
 import { ChuongtruyenService } from 'src/app/services/chuongtruyen.service';
+import { DanhgiaService } from 'src/app/services/danhgia.service';
+import { DocgiaService } from 'src/app/services/docgia.service';
+
+
 @Component({
   selector: 'app-chitiet',
   templateUrl: './chitiet.component.html',
@@ -13,26 +17,37 @@ export class ChitietComponent implements OnInit {
 
 
   truyen: any;
+
   theloai: any = [];
   tacgia: any = [];
+  docgia: any = [];
+
   chuongtruyen: Array<any> = [];
   thuvien: Array<any> = [];
   id_truyen: string = '';
   tentheloai: string = '';
   tentacgia: string = '';
+  tendaydu:string='';
+  anh:string='';
+  danhgia: Array<any> = [];
 
 
-  constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TheloaiService, private tg: TacgiaService, private _route: ActivatedRoute,private router:Router) {
+  constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TheloaiService, private tg: TacgiaService,private dg: DanhgiaService,private nd: DocgiaService,  private _route: ActivatedRoute,private router:Router) {
     this.id_truyen = this._route.snapshot.paramMap.get('id')!;
     this.getTheloai();
     this.getIdtruyen();
     this.getTacgia();
+    this.getDocgia();
   }
 
   ngOnInit(): void {
     setTimeout(() => {
       this.tentheloai = this.theloai?.find((x: any) => x.id_theloai === this.truyen.id_theloai)?.tentheloai;
       this.tentacgia = this.tacgia?.find((x: any) => x.id_tacgia === this.truyen.id_tacgia)?.tentacgia;
+     // this.tendaydu = this.docgia?.find((x: any) => x.id_docgia === this.danhgia.id_docgia)?.tendaydu;
+      //this.anh = this.docgia?.find((x: any) => x.id_docgia === this.danhgia.id_docgia)?.anh;
+
+
 
     }, 50);
 
@@ -43,14 +58,27 @@ export class ChitietComponent implements OnInit {
       this.chuongtruyen = this.chuongtruyen.filter((chuongtruyen) => chuongtruyen.id_truyen === +this.id_truyen);
     })
 
-
-
+    this.dg.getDanhgia().subscribe(res => {
+      this.danhgia = res;
+      this.danhgia = this.danhgia.filter((danhgia) => danhgia.id_truyen === +this.id_truyen);
+    })
 
   }
+
   getTheloai() {
     this.tl.getTheloai().subscribe({
       next: (value) => {
         this.theloai = value;
+      },
+    })
+
+
+  }
+  
+  getDocgia() {
+    this.nd.getDocgia().subscribe({
+      next: (value) => {
+        this.docgia = value;
       },
     })
 

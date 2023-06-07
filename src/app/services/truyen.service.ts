@@ -41,8 +41,8 @@ export class TruyenService {
       return [];
     }
   }
-  login(data:any): Observable<any>{ 
-    return this.http.post<any>('https://localhost:44342/api/Truyens/Login' ,data).pipe(
+  login(data:any,onDocgia:boolean): Observable<any>{ 
+    return this.http.post<any>('https://localhost:44342/api/'+`${onDocgia ? 'DanhGias' : 'Truyens'}`+'/Login' ,data).pipe(
       map((user) => {
         //debugger;
         sessionStorage.setItem('user', JSON.stringify(user));

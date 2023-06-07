@@ -29,4 +29,5 @@ export class DanhgiaService {
   update(data:any,id:number): Observable<any>{
     return this.http.put<any>('https://localhost:44342/api/DanhGias/'+id ,data)
   }
+  
 }

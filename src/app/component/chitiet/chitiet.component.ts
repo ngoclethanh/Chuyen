@@ -30,6 +30,8 @@ export class ChitietComponent implements OnInit {
   tendaydu:string='';
   anh:string='';
   danhgia: Array<any> = [];
+  cache =  JSON.parse(sessionStorage.getItem('user')!);
+  modelComment ={id_truyen:0,id_docgia:0,noidung:null}
 
 
   constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TheloaiService, private tg: TacgiaService,private dg: DanhgiaService,private nd: DocgiaService,  private _route: ActivatedRoute,private router:Router) {
@@ -57,12 +59,20 @@ export class ChitietComponent implements OnInit {
       this.chuongtruyen = res;
       this.chuongtruyen = this.chuongtruyen.filter((chuongtruyen) => chuongtruyen.id_truyen === +this.id_truyen);
     })
+    this.getDanhGia();
 
+    
+
+  }
+  getDanhGia(){
     this.dg.getDanhgia().subscribe(res => {
       this.danhgia = res;
       this.danhgia = this.danhgia.filter((danhgia) => danhgia.id_truyen === +this.id_truyen);
+      this.danhgia = this.danhgia.map((x)=>{
+        x.tendocgia = x.DocGia.tendaydu;
+        return x;
+      })
     })
-
   }
 
   getTheloai() {
@@ -74,7 +84,17 @@ export class ChitietComponent implements OnInit {
 
 
   }
-  
+  comment(){
+      
+     this.modelComment.id_docgia = +this.cache.id_docgia;
+     this.modelComment.id_truyen =+this.id_truyen ;
+     this.dg.create(this.modelComment).subscribe({
+      next:(value) =>{
+          this.getDanhGia();
+          this.modelComment.noidung = null;
+      },
+     })
+  }
   getDocgia() {
     this.nd.getDocgia().subscribe({
       next: (value) => {

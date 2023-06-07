@@ -77,30 +77,36 @@
         </div>
     </div>
     <!-- Shop Detail End -->
-    <div class="row px-xl-5">
-        <div class="col">
-            <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                <a class="nav-item nav-link active" data-toggle="tab" style="margin-left:-1050px" href="#tab-pane-1"><i
-                    class="fa fa-comment mr-1"></i>Bình luận</a>
+    
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-8">
+                <div class="d-flex flex-column comment-section">
+                    <div class="bg-white p-2" *ngFor="let item of danhgia">
+                        <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                            <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">{{item.tendocgia}}</span><span class="date text-black-50">Được chia sẻ công khai - {{item.ngaydang | date:'medium'}}</span></div>
+                        </div>
+                        <div class="mt-2">
+                            <p class="comment-text">{{item.noidung}}.</p>
+                        </div>
+                    </div>
+                    <div class="bg-white">
+                        <div class="d-flex flex-row fs-12">
+                            <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                            <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                            <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                        </div>
+                    </div>
+                    <div class="bg-light p-2">
+                        <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg"
+                                width="40"><textarea (keyup.enter)="comment()" [(ngModel)]="modelComment.noidung"
+                                placeholder="Mời bạn viết bình luận" name="noidung"
+                                class="form-control ml-1 shadow-none textarea"></textarea></div>
+                        <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button"
+                                (click)="comment()">Post comment</button></div>
+                    </div>
+                </div>
             </div>
-            <div class="table-responsive pt-3" >
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr>
-
-                            <tr *ngFor="let dg of danhgia">
-                                <img class="w-85 h-20" style="height:500px" src="/assets/User/Anh1/{{anh}}" alt="Image">
-
-    
-                                    <td><a >{{tendaydu}}<br />
-                                        {{dg.noidung}} <br />
-                                        {{dg.ngaydang}}
-                                    </a></td>
-                            </tr>
-    
-                        </tbody>
-                    </table>
-                
         </div>
     </div>
 

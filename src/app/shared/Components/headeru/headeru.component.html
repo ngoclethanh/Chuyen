@@ -76,13 +76,13 @@
                         <a *ngIf="user !== null" class="btn btn-dark mt-1 btn-sm" routerLink="/dangtruyen" href="javascript:void(0)">Đăng truyện</a>
                         <a (click)="onSwitchLogin()" href="javascript:void(0)" class="ml-4 btn btn-dark mt-1 btn-sm">{{user === null ? 'Đăng nhập': 'Đăng xuất'}}</a>
                         <a href="/dangky" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng ký</a>
-                        <a class="ml-4">{{user.tentacgia}}</a>
+                        <a class="ml-4">{{user?.tentacgia || ''}}</a>
                     </li>
                 </div>
             
         </div>
     </nav>
-    <div class="modal fade"  #modal id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade"  #modal id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -147,10 +147,7 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="p-dialog-footer p-p-0 p-mt-3">
-              <button pButton label="Lưu" type="submit" icon="pi pi-check" class="mr-2"></button>
-              <button pButton label="Đóng" type="reset" icon="pi pi-times" class="p-button-danger"></button>
-            </div> -->
+           
           </div>
           <div class="modal-footer">
             <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -160,4 +157,4 @@
   
       </div>
     </div>
-  </div>
+  </div> -->

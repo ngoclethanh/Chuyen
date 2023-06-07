@@ -17,7 +17,7 @@ export class HeaderuComponent implements OnInit {
   sreachForm = this.fb.group({
     tentruyen: '',
   });
-  user: any = null;
+  user: any ;
   model = {
     tentruyen: null,
     id_tacgia: null,
@@ -32,12 +32,11 @@ export class HeaderuComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router
   ) {
-    setTimeout(() => {
-      this.user = JSON.parse(sessionStorage.getItem('user')!);
-    }, 50);
+  
   }
 
   ngOnInit(): void {
+      this.user = JSON.parse(sessionStorage.getItem('user')!) || null;
     this.getTheloai();
   }
   getTheloai(id?: any) {

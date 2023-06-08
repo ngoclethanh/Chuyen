@@ -128,6 +128,8 @@ export class ChitietComponent implements OnInit {
   }
 
   onAddThuvien(truyen: any) {
+    
+
     let index = this.thuvien.findIndex((item: any) => {
       return item.id_truyen == truyen.id_truyen
     });
@@ -143,6 +145,8 @@ export class ChitietComponent implements OnInit {
       }
       this.thuvien.push(thuvienItem);
     }
+    this.modelComment.id_docgia = +this.cache.id_docgia;
+
     /// lưu vào storage
     this.pd.saveThuvien(this.thuvien);
     alert('Bạn đã thêm thành công vào danh sách yêu thích  !')

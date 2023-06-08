@@ -12,6 +12,7 @@ export class DangnhapComponent {
   @ViewChild('form') form!: NgForm;
   constructor(private service: TruyenService, private router: Router) {}
   model = { username: null, password: null,key:true };
+  
   onLogin() {
     if (this.model.key) {
       //true thì sẽ là đn vào độc giả

@@ -26,6 +26,9 @@ import { DangkyComponent } from './component/dangky/dangky.component';
 import { DangnhapComponent } from './component/dangnhap/dangnhap.component';
 import { DangtruyenComponent } from './component/dangtruyen/dangtruyen.component';
 import { BinhluanComponent } from './component/binhluan/binhluan.component';
+import { DangnhapDocgiaComponent } from './component/dangnhap-docgia/dangnhap-docgia.component';
+import { DangnhapAdminComponent } from './dangnhap-admin/dangnhap-admin.component';
+import { GuardService } from './dangnhap-admin/guard.service';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -34,20 +37,21 @@ const routes: Routes = [
   {path: 'thuvien', component: ThuvienComponent},
   {path: 'dangky', component: DangkyComponent},
   {path: 'user/dangnhap', component: DangnhapComponent},
+  {path: 'user/dangnhapdocgia', component: DangnhapDocgiaComponent},
   {path: 'dangtruyen', component: DangtruyenComponent},
   {path: 'binhluan', component: BinhluanComponent},
 
   //ADMIN
-  {path: 'truyen', component: TruyenComponent},
+  {path: 'truyen', component: TruyenComponent, canActivate: [GuardService],},
   {path: 'truyen/add', component: TruyenCreateComponent},
   {path: 'truyen/edit/:id', component: TruyenEditComponent},
   {path: 'theloai/add', component: TheloaiCreateComponent},
-  {path: 'theloai', component: TheloaiComponent},
+  {path: 'theloai', component: TheloaiComponent, canActivate: [GuardService]},
   {path: 'theloai/edit/:id', component: TheloaiEditComponent},
-  {path: 'chuong', component: ChuongtruyenComponent},
-  {path: 'tacgia', component: TacgiaComponent},
-  {path: 'docgia', component: DocgiaComponent},
-  {path: 'danhgia', component: DanhgiaComponent},
+  {path: 'chuong', component: ChuongtruyenComponent, canActivate: [GuardService]},
+  {path: 'tacgia', component: TacgiaComponent, canActivate: [GuardService]},
+  {path: 'docgia', component: DocgiaComponent, canActivate: [GuardService]},
+  {path: 'danhgia', component: DanhgiaComponent, canActivate: [GuardService]},
   {path: 'chuong/edit/:id', component: ChuongtruyenEditComponent},
   {path: 'docgia/edit/:id', component: DocgiaEditComponent},
   {path: 'danhgia/edit/:id', component: DanhgiaEditComponent},
@@ -56,6 +60,7 @@ const routes: Routes = [
   {path: 'docgia/add', component: DocgiaCreateComponent},
   {path: 'danhgia/add', component: DanhgiaCreateComponent},
   {path: 'tacgia/add', component: TacgiaCreateComponent},
+  {path: 'dangnhapAdmin', component: DangnhapAdminComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },

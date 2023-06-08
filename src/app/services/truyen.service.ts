@@ -50,9 +50,7 @@ export class TruyenService {
       })
     );
   }
-  logout() {
-    sessionStorage.removeItem('user');
-  }
+
   saveThuvien(thuvien:any){
     let thuvienjson =JSON.stringify(thuvien);
 sessionStorage.setItem('thuvien',thuvienjson)

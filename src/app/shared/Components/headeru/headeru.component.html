@@ -74,9 +74,11 @@
                 <div class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a *ngIf="user !== null" class="btn btn-dark mt-1 btn-sm" routerLink="/dangtruyen" href="javascript:void(0)">Đăng truyện</a>
-                        <a (click)="onSwitchLogin()" href="javascript:void(0)" class="ml-4 btn btn-dark mt-1 btn-sm">{{user === null ? 'Đăng nhập': 'Đăng xuất'}}</a>
-                        <a href="/dangky" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng ký</a>
+                        <a *ngIf="user === null" routerLink="/user/dangnhap" href="javascript:void(0)" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng nhập tác giả</a>
+                        <a *ngIf="user === null" routerLink="/user/dangnhapdocgia" href="javascript:void(0)" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng nhập độc giả</a>
+                        <a *ngIf="user !== null" (click)="logout()" href="javascript:void(0)" class="ml-4 btn btn-dark mt-1 btn-sm">Đăng xuất</a>
                         <a class="ml-4">{{user?.tentacgia || ''}}</a>
+                        <a class="ml-4">{{user?.tendaydu || ''}}</a>
                     </li>
                 </div>
             

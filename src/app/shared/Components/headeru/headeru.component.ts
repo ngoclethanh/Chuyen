@@ -18,6 +18,7 @@ export class HeaderuComponent implements OnInit {
     tentruyen: '',
   });
   user: any ;
+  docgia:any;
   model = {
     tentruyen: null,
     id_tacgia: null,
@@ -37,7 +38,7 @@ export class HeaderuComponent implements OnInit {
 
   ngOnInit(): void {
       this.user = JSON.parse(sessionStorage.getItem('user')!) || null;
-    this.getTheloai();
+      this.getTheloai();
   }
   getTheloai(id?: any) {
     this.tl.getTheloai().subscribe((res) => {
@@ -46,11 +47,11 @@ export class HeaderuComponent implements OnInit {
     });
   }
   save() {}
-  onSwitchLogin() {
-    if (!_.isEmpty(this.user)) {
-      this.ct.logout();
-    }
-    this.router.navigateByUrl('/user/dangnhap');
+ 
+  logout(){
+    sessionStorage.clear();
+    alert("Bạn đã đăng xuất");
+    this.user = null;
   }
 
   onSearch() {

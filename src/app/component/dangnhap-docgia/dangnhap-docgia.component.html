@@ -1,0 +1,22 @@
+<div class="page">
+    <div class="container">
+        <div class="left">
+            <div class="login">Login</div>
+            <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read
+            </div>
+        </div>
+        <div class="right">
+            <div class="form">
+                <form #form="ngForm" (submit)="onLogin()" >
+                    <label for="email">Tên đăng nhập</label>
+                    <input type="text"  [(ngModel)]="model.username" required name="username" #username="ngModel"> <br>
+                    <small style="margin-top: 20px;" class="error error-message" *ngIf="username.errors?.['required'] &&  (username?.dirty || username?.touched || form?.submitted)">This field is required</small>
+                    <label for="password">Password</label>
+                    <input type="password" [(ngModel)]="model.password" #password="ngModel" required name="password"><br>
+                    <small class="error error-message" *ngIf="password.errors?.['required'] &&  (password?.dirty || password?.touched || form?.submitted)">This field is required</small>
+                    <input type="submit" id="submit" value="Đăng nhập">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

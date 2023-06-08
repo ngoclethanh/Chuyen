@@ -14,26 +14,10 @@ export class DangnhapComponent {
   model = { username: null, password: null,key:true };
   
   onLogin() {
-    if (this.model.key) {
-      //true thì sẽ là đn vào độc giả
-      if (this.form?.valid) {
-        this.service.login(this.model,this.model.key).subscribe({
-          next: (data) => {
-            if (data.Code === 400) {
-              alert('Tài khoản hoặc mật khẩu chưa chính xác');
-            } else {
-              this.router.navigate(['/home']).then();
-            }
-          },
-          error: () => {
-            alert('Có lỗi xảy ra');
-          },
-        });
-      }
-    } else {
+
       //false sẽ là tác giả
       if (this.form?.valid) {
-        this.service.login(this.model,this.model.key!).subscribe({
+        this.service.login(this.model,false).subscribe({
           next: (data) => {
             if (data.Code === 400) {
               alert('Tài khoản hoặc mật khẩu chưa chính xác');
@@ -48,5 +32,4 @@ export class DangnhapComponent {
       }
     }
     
-  }
 }

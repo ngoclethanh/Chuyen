@@ -130,6 +130,11 @@
             <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
             <a class="menu-title" href="/danhgia" >Quản lý đánh giá</a>
         </li>
+        <li class="nav-item">
+          <i class="icon-grid-2 menu-icon"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+          <a class="menu-title" href="/account" >Quản lý tài khoản</a>
+      </li>
+            
                
               
             </ul>
@@ -143,7 +148,7 @@
     <div class="card-body">
     
       <h4 class="card-title">Quản lý truyện</h4>
-      <a routerLink="add" class="btn btn-primary"> Thêm</a>
+      <a routerLink="add" class="btn btn-primary" *ngIf="admin.create === 1"> Thêm</a>
           <div class="table-responsive pt-3">
             <table class="table table-bordered">
                       <thead>
@@ -156,9 +161,9 @@
                             <th >Trạng thái</th>
                             <th>Ngày đăng</th>
                             <th>Ảnh</th>
-                            <th>Mô tả</th>&nbsp;&nbsp;&nbsp;&nbsp;
-    
-                            <th>Thao Tác</th>
+                            <th>Mô tả </th>
+                            <th *ngIf="admin.update === 1">Update</th>
+                            <th *ngIf="admin.remove === 1">Remove</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -170,13 +175,10 @@
                             <td> {{pd.id_theloai}} </td>
                             <td> {{pd.trangthai}} </td>
                             <td> {{pd.ngaydang}} </td>
-    
                             <td> <img src="/assets/User/Anh/{{pd.anh}}" alt="" style="width: 100px; height: 100px;" /></td>
                             <td> {{pd.mota}} </td>
-    
-                            <td> <a routerLink="edit/{{pd.id_truyen}}" class="btn btn-primary" >Sửa</a> </td>
-                            <td> <a href="javascript:void()"  class="btn btn-danger"(click)="onDelete(pd.id_truyen)" >Xóa</a> </td>
-                          
+                            <td *ngIf="admin.update === 1"> <a  routerLink="edit/{{pd.id_truyen}}" class="btn btn-primary" >Sửa</a> </td>
+                            <td *ngIf="admin.remove ===1"> <a  href="javascript:void()"  class="btn btn-danger"(click)="onDelete(pd.id_truyen)" >Xóa</a> </td>
                         </tr>
               
                         </tbody>

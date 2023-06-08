@@ -17,9 +17,7 @@ export class TruyenService {
     if(search_key != null){
       url +='?name=' + search_key;
     }
-
     return this.http.get<any>( url)}
- 
   getID(id:any){
     return this.http.get<any>('https://localhost:44342/api/Truyens/' +id )
   }

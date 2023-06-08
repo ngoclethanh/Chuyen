@@ -29,6 +29,7 @@ import { BinhluanComponent } from './component/binhluan/binhluan.component';
 import { DangnhapDocgiaComponent } from './component/dangnhap-docgia/dangnhap-docgia.component';
 import { DangnhapAdminComponent } from './dangnhap-admin/dangnhap-admin.component';
 import { GuardService } from './dangnhap-admin/guard.service';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path: 'danhgia/add', component: DanhgiaCreateComponent},
   {path: 'tacgia/add', component: TacgiaCreateComponent},
   {path: 'dangnhapAdmin', component: DangnhapAdminComponent},
+  {path: 'account', component: AdminComponent},
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home' },

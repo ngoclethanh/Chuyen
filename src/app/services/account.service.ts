@@ -21,7 +21,7 @@ export class AccountService {
   delete(id: number): Observable<any> {
     return this.http.delete<any>(this.url + id);
   }
-  update(data: any, id: number): Observable<any> {
-    return this.http.put<any>(this.url + id, data);
+  update(data: any): Observable<any> {
+    return this.http.put<any>(this.url, data);
   }
 }

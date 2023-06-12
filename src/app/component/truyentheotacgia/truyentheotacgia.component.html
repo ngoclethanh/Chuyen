@@ -1,0 +1,33 @@
+<app-headeru></app-headeru>
+
+<!-- Cart Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5">
+        <div class="col-lg-8 table-responsive mb-5">
+            <table class="table table-bordered text-center mb-0">
+                <thead class="bg-secondary text-dark">
+                    <tr>
+                        <th>Ảnh</th>
+                        <th>Tên truyện</th>
+                        
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    <tr *ngFor="let pd of truyen; let i = index">
+                        <td class="align-middle"><img src="/assets/User/Anh/{{pd.anh}}" alt="" style="width: 50px;"> </td>
+                        <td class="align-middle">{{pd.tentruyen}}</td>
+
+                        
+                        <td class="align-middle" routerLink="/taochuong"><i class="fa fa-plus mr-1"></i></td>
+                        </tr>
+                 
+                </tbody>
+            </table>
+        </div>
+       
+    </div>
+</div>
+
+
+<app-footer></app-footer>

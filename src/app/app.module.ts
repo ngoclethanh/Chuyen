@@ -42,6 +42,7 @@ import { BinhluanComponent } from './component/binhluan/binhluan.component';
 import { DangnhapDocgiaComponent } from './component/dangnhap-docgia/dangnhap-docgia.component';
 import { DangnhapAdminComponent } from './dangnhap-admin/dangnhap-admin.component';
 import { AdminComponent } from './admin/admin.component';
+import { TruyentheotacgiaComponent } from './component/truyentheotacgia/truyentheotacgia.component';
 
 @Injectable({providedIn: 'root'})
 export class ServiceNameService {
@@ -79,7 +80,8 @@ export class ServiceNameService {
     BinhluanComponent,
     DangnhapDocgiaComponent,
     DangnhapAdminComponent,
-    AdminComponent
+    AdminComponent,
+    TruyentheotacgiaComponent
   ],
   imports: [
     BrowserModule,

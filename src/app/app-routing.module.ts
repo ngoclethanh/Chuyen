@@ -30,6 +30,7 @@ import { DangnhapDocgiaComponent } from './component/dangnhap-docgia/dangnhap-do
 import { DangnhapAdminComponent } from './dangnhap-admin/dangnhap-admin.component';
 import { GuardService } from './dangnhap-admin/guard.service';
 import { AdminComponent } from './admin/admin.component';
+import { TruyentheotacgiaComponent } from './component/truyentheotacgia/truyentheotacgia.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'user/dangnhapdocgia', component: DangnhapDocgiaComponent},
   {path: 'dangtruyen', component: DangtruyenComponent},
   {path: 'binhluan', component: BinhluanComponent},
+  {path: 'truyentheotacgia/:id', component: TruyentheotacgiaComponent},
 
   //ADMIN
   {path: 'truyen', component: TruyenComponent, canActivate: [GuardService],},

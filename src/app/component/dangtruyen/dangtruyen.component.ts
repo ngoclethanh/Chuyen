@@ -68,7 +68,8 @@ theloai:any;
       return false;
     }
     this.td.create(data).subscribe((res) => {
-      this._route.navigate(['/home']);
+      this._route.navigate(['/truyentheotacgia/'+data.id_tacgia]);
+
     });
   }
 

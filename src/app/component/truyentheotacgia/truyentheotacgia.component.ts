@@ -7,75 +7,67 @@ import { DanhgiaService } from 'src/app/services/danhgia.service';
 import { DocgiaService } from 'src/app/services/docgia.service';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-truyentheotacgia',
   templateUrl: './truyentheotacgia.component.html',
-  styleUrls: ['./truyentheotacgia.component.css']
+  styleUrls: ['./truyentheotacgia.component.css'],
 })
 export class TruyentheotacgiaComponent implements OnInit {
-
-
-
   tacgia: any = [];
   chuong: any = [];
 
-
   truyen: Array<any> = [];
-  
+
   id_tacgia: string = '';
 
-
-  constructor(private ct: ChuongtruyenService, public pd: TruyenService, private tl: TacgiaService, private tg: TacgiaService,private dg: DanhgiaService,private nd: DocgiaService,  private _route: ActivatedRoute,private router:Router) {
+  constructor(
+    private ct: ChuongtruyenService,
+    public pd: TruyenService,
+    private tl: TacgiaService,
+    private tg: TacgiaService,
+    private dg: DanhgiaService,
+    private nd: DocgiaService,
+    private _route: ActivatedRoute,
+    private router: Router
+  ) {
     this.id_tacgia = this._route.snapshot.paramMap.get('id')!;
-    
   }
   @ViewChild('form', { static: false }) form!: NgForm;
 
   model = {
-    id_truyen:0,
+    id_truyen: 0,
     tenchuong: null,
     noidung: null,
-    ngaydang: null,
+    sothutu: 0,
   };
   reset() {
     this.form?.reset();
     this.form?.resetForm();
     this.model = {
-      id_truyen:0,
+      id_truyen: 0,
       tenchuong: null,
       noidung: null,
-      ngaydang: null,
+      sothutu: 0,
     };
   }
   getData(item: any) {
     this.model.id_truyen = item.id_truyen;
-
-    this.model.tenchuong = item.tenchuong;
-    this.model.noidung = item.noidung;
-    this.model.ngaydang = item.ngaydang;
   }
   ngOnInit(): void {
-    
-
     //this.getID();
-
-    this.pd.getTruyen().subscribe(res => {
-      this.truyen = res;
-      this.truyen = this.truyen.filter((truyen) => truyen.id_tacgia === +this.id_tacgia);
-    })
-  
-    
-
-    
-
+    this.getTruyen();
   }
- 
-
-  
-  
-
-
+  getTruyen() {
+    this.pd.getTruyen().subscribe((res) => {
+      this.truyen = res;
+      this.truyen = this.truyen.filter(
+        (truyen) => truyen.id_tacgia === +this.id_tacgia
+      );
+    });
+  }
+  onCreate(): any {
+    this.ct.create(this.model).subscribe((res) => {
+      alert('Thêm chương thành công');
+    });
+  }
 }
-
-

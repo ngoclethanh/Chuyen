@@ -9,25 +9,84 @@
                     <tr>
                         <th>Ảnh</th>
                         <th>Tên truyện</th>
-                        
+
                         <th>Thao tác</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
                     <tr *ngFor="let pd of truyen; let i = index">
-                        <td class="align-middle"><img src="/assets/User/Anh/{{pd.anh}}" alt="" style="width: 50px;"> </td>
+                        <td class="align-middle"><img src="/assets/User/Anh/{{pd.anh}}" alt="" style="width: 50px;">
+                        </td>
                         <td class="align-middle">{{pd.tentruyen}}</td>
 
-                        
-                        <td class="align-middle" routerLink="/taochuong"><i class="fa fa-plus mr-1"></i></td>
-                        </tr>
-                 
+
+                        <td class="align-middle"><button (click)="getData(pd)" type="button" data-toggle="modal"
+                                data-target="#exampleModal" class="btn btn-danger btn-sm"><i
+                                    class="fa fa-plus mr-1"></i></button></td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
-       
+
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="Color:blue;font-family:Garamond;font-size: 30px;">
+                    Thêm chương
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form #form="ngForm" (submit)="onCreate()">
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="giaban">Số thứ tự</label>
+                        <input type="number" class="form-control" id="sothutu" name="sothutu" [(ngModel)]="model.sothutu">
+                    </div>
+                    <div class="form-group">
+                        <label for="giaban">Tên chương</label>
+                        <input type="text" class="form-control" id="tenchuong" name="tenchuong" [(ngModel)]="model.tenchuong">
+                    </div>
+                    <!-- <div class="form-group">
+                  <label for="giaban">Id tác giả</label>
+                  <input type="text" class="form-control" id="id_tacgia" formControlName="id_tacgia">
+                </div> -->
+                    <!-- <div class="form-group">
+                  <label for="giaban">Tên tác giả</label>
+                  <input type="text" class="form-control" id="tentacgia" formControlName="tentacgia">
+                </div> -->
+                    <div class="form-group">
+                        <label for="giaban">Nội dung</label>
+                        <input type="text" class="form-control" id="noidung" name="noidung" [(ngModel)]="model.noidung">
+                    </div>
+
+
+                    <!-- <div class="form-group">
+                  <label for="giaban">Ngày đăng</label>
+                  <input type="text" class="form-control" id="ngaydang" formControlName="ngaydang">
+                </div> -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
 
 
 <app-footer></app-footer>
